@@ -1,7 +1,9 @@
 @echo off
 SETLOCAL enableDelayedExpansion
-rm y
-rm n
+
+set pilihan=
+for /f "delims=" %%x in (mode_editing.txt) do set "pilihan=%%x"
+echo EDITING MODE : %pilihan%
 
 set /P jawab="masuk mode editing (y/n)?  :  "
 
@@ -14,6 +16,7 @@ if "%jawab%" == "y" (
 
 adb disconnect
 adb devices
-pause
+rm !pilihan!
 rm y
 rm n
+pause

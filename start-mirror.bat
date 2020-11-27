@@ -1,6 +1,8 @@
 @echo off
 SETLOCAL enableDelayedExpansion
 adb devices
+echo '
+adb shell ip -o a
 
 set pilihan=
 for /f "delims=" %%x in (mode_editing.txt) do set "pilihan=%%x"
@@ -24,6 +26,7 @@ EXIT /B
 	if "%jawab%" == "y" (
 	set /P id="Masukan ID Devices: " 
 	rm id_device.txt
+	rm !content!
 	echo SAVE ID DEVICE +=> !id!
 	echo !id! >> id_device.txt
 	)
@@ -42,3 +45,5 @@ EXIT /B
 :END_CASE
   VER > NUL # reset ERRORLEVEL
   GOTO :EOF # return from CALL
+
+rm !content!
