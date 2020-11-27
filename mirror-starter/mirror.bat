@@ -1,1 +1,0 @@
-scrcpy.exe -s K2AXGF003755Y93 --turn-screen-off --always-on-top --render-expired-frames
