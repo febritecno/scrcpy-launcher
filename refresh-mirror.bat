@@ -5,6 +5,8 @@ set pilihan=
 for /f "delims=" %%x in (mode_editing.txt) do set "pilihan=%%x"
 echo EDITING MODE : %pilihan%
 
+rm %pilihan%
+
 set /P jawab="masuk mode editing (y/n)?  :  "
 
 if "%jawab%" == "y" ( 
@@ -16,7 +18,5 @@ if "%jawab%" == "y" (
 
 adb disconnect
 adb devices
-rm !pilihan!
-rm y
-rm n
+rm %pilihan%
 pause

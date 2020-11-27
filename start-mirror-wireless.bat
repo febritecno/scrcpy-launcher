@@ -10,6 +10,8 @@ set content=
 for /f "delims=" %%x in (ip_device.txt) do set "content=%%x"
 echo IP DEVICE SAVED : %content%
 
+rm %content%
+
 2>NUL CALL :CASE_%pilihan%
 IF ERRORLEVEL 1 CALL :DEFAULT_CASE
 
@@ -37,6 +39,8 @@ EXIT /B
 	pause
   GOTO END_CASE
 :CASE_n
+	adb tcpip 5555
+	adb connect %content%
 	adb devices
 	echo Menjalankan mirror server......
 	scrcpy.exe --turn-screen-off --always-on-top --render-expired-frames
@@ -48,4 +52,4 @@ EXIT /B
   VER > NUL # reset ERRORLEVEL
   GOTO :EOF # return from CALL
 
-rm !content!
+rm %content%

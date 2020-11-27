@@ -10,6 +10,7 @@ echo EDITING MODE : %pilihan%
 set content=
 for /f "delims=" %%x in (id_device.txt) do set "content=%%x"
 echo ID DEVICE SAVED : %content%
+rm %content%
 
 2>NUL CALL :CASE_%pilihan%
 IF ERRORLEVEL 1 CALL :DEFAULT_CASE
@@ -46,4 +47,4 @@ EXIT /B
   VER > NUL # reset ERRORLEVEL
   GOTO :EOF # return from CALL
 
-rm !content!
+rm %content%
