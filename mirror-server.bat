@@ -1,0 +1,1 @@
+scrcpy.exe --turn-screen-off --always-on-top --render-expired-frames
